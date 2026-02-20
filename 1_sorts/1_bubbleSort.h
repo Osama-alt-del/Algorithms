@@ -1,4 +1,4 @@
-// This is a C file where I implement bubble sort to sort an array
+/* This is a C header file where I decalre a bubble sort function  */
 
 /* Questions:
 1. Q: Why can't we use a variable to declare the number of values in an array, even if that variable is set as constant?
@@ -35,25 +35,6 @@ and we end up with a sorted array
 To check if the array is sorted, we use a flag (boolean), if our check condition is triggered, then the loop keeps going (usually set the
 flag to 1 to keep the loop running)
 */
-
-#include <stdio.h>
-#define SIZE 4 
-void bubbleSort(int*, int);
-
-int main(){
-	// Can't use variable to define array length?
-	// const size = 3;
-	int array[SIZE] = {4, 3, 2, 1};
-	bubbleSort(array, SIZE);
-
-	// Check the sorted array
-	for (int i = 0; i < SIZE; i++){
-		printf("%d\n", array[i]);
-	}
-
-	return 0;
-}
-
 // Final check could be one final loop with a boolean (correct)
 void bubbleSort(int* array, int size){
 	int temp;
@@ -62,7 +43,7 @@ void bubbleSort(int* array, int size){
 	while (flag){
 		flag = 0;
 		// size -1 used to ensure i+1 works
-		for (int i = 0; i < SIZE-1; i++){
+		for (int i = 0; i < size-1; i++){
 			if (array[i] > array[i+1]){
 				flag = 1;
 				temp = array[i];
