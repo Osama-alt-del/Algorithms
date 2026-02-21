@@ -9,7 +9,7 @@ int main(){
 	// Can't use variable to define array length?
 	// const size = 3;
 	int array[SIZE] = {4, 3, 2, 1};
-	bubbleSort(array, SIZE);
+	betterBubbleSort(array, SIZE);
 
 	// Check the sorted array
 	for (int i = 0; i < SIZE; i++){

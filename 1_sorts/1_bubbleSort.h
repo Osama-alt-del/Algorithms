@@ -4,7 +4,11 @@
 1. Q: Why can't we use a variable to declare the number of values in an array, even if that variable is set as constant?
    A: 	
 2. Q: What is the complexity of Bubble sort in terms of space and time?
-   A: 
+   A: The complexity of bubble Sort is O(n^2) for the worst/average time complexity. The space complexity of bubbleSort is O(1), because 
+   the amount of space needed does not grow wiwht the size of the input.
+   	
+	time: O(n^2)
+	space: O(1)
 */
 
 /*
@@ -39,7 +43,7 @@ flag to 1 to keep the loop running)
 void bubbleSort(int* array, int size){
 	int temp;
 	int flag = 1;
-	// We use a flag to check the array has been sorted
+	// we use a flag to check the array has been sorted
 	while (flag){
 		flag = 0;
 		// size -1 used to ensure i+1 works
@@ -51,5 +55,29 @@ void bubbleSort(int* array, int size){
 				array[i+1] = temp;
 			}
 		}
+	}
+}
+
+/* We can improve this by taking into account that as the bubble runs through once, we know for sure that the largest value should be in the
+right place, which means we can decreasee the range of the comparison */
+
+
+void betterBubbleSort(int* array, int size){
+	int temp;
+	int k  = 0;
+	int flag = 1;
+	// we use a flag to check the array has been sorted
+	while (flag){
+		flag = 0;
+		// size -1 used to ensure i+1 works
+		for (int i = 0; i < size-1-k; i++){
+			if (array[i] > array[i+1]){
+				flag = 1;
+				temp = array[i];
+				array[i] = array[i+1];
+				array[i+1] = temp;
+			}
+		}
+	k ++;
 	}
 }
