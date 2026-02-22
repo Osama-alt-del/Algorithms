@@ -10,6 +10,7 @@
 */
 
 // いつ始まる、または、いつ終わるというパラメターが必要
+// I would have to make start 0 at first, which is ok I guess for now
 void quickSort(int* array, int size, int start){
 	// どうやって分ける？
 	// 回帰的関数で行けると思う。
@@ -20,7 +21,22 @@ void quickSort(int* array, int size, int start){
 		return;
 	}
 
-	for (int i = 0; i < size
+	// srand(time(NULL));
+	// 適当な値の為に (スタートとサイズの間の値）
+	int randIndex = rand() % size + start;
+
+	for (int i = start; i < size; i++){
+		if (array[i] > array[randIndex]){
+			array[i] = /* どうすればいい？ */;
+		}
+		if (array[i] < array[randIndex]){
+			array[i] = /* どうすればいい？ */;
+		}
+	}
+	// But start never changes, so it will always be 0?
+	// Is that ok?
+	quickSort(array, start, randIndex);
+	quickSort(array, randIndex, size);
 
 	
 }
