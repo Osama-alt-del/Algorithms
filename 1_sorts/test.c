@@ -1,15 +1,21 @@
 #include <stdio.h>
 #include "./1_bubbleSort.h"
+#include "./2_quickSort.h"
 #define SIZE 4 
 void bubbleSort(int*, int);
 
 int main(){
 
-	/* Bubble Sort Checks */
 	// Can't use variable to define array length?
 	// const size = 3;
 	int array[SIZE] = {4, 3, 2, 1};
-	betterBubbleSort(array, SIZE);
+
+	/* Bubble Sort Test */
+
+	//betterBubbleSort(array, SIZE);
+	
+	/* Quick Sort Test */
+	quickSort(array, 0, SIZE);
 
 	// Check the sorted array
 	for (int i = 0; i < SIZE; i++){

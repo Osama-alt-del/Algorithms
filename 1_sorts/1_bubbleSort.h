@@ -36,7 +36,8 @@ Here we only needed to do two bubbles, because only two numbers where out of pla
 
 and we end up with a sorted array
 
-To check if the array is sorted, we use a flag (boolean), if our check condition is triggered, then the loop keeps going (usually set the
+To check if the array is sorted, we use a flag (boolean), if our check condition is triggered, then the loop keeps going (usually 
+set the
 flag to 1 to keep the loop running)
 */
 // Final check could be one final loop with a boolean (correct)
