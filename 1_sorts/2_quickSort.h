@@ -17,27 +17,19 @@ int partition(int* array, int low, int high){
         i = low;
         j = high; 
 	int pivot = array[low];
-        printf("pivot: %d\n", pivot);
 	do{
-		do{i++;printf("i: %d\n", i);}while(array[i] <= pivot);
-                printf("\n");
-		do{j--;printf("j: %d\n", j);}while(array[j] > pivot);
-                printf("i: %d, j: %d\n", i, j);
+		do{i++;}while(array[i] <= pivot);
+		do{j--;}while(array[j] > pivot);
 		if (i < j){
 			temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
 		}
 	}while(i < j);
+        // 次からはswapに気をつけろ
 	temp = array[j];
 	array[j] = array[low];
 	array[low] = temp;
-
-        printf("Array: \n");
-	for (int i = low; i < high; i++){
-		printf("%d ", array[i]);
-	}
-        printf("\n");
 	return j;
 }
 
@@ -48,5 +40,4 @@ void quickSort(int* array, int low, int high){
 		 quickSort(array, j+1, high);
 	}
 }
-
 
