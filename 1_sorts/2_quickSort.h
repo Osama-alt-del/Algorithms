@@ -9,6 +9,13 @@
 	これは一般的に最も多く使われているソート
 	この動画がめっちゃいい：
 		https://www.youtube.com/watch?v=7h1s2SojIRw&t=419s
+
+        Complexity:
+            Time: 
+                最速と平均計算量: O(nlog(n))
+                最悪計算量：O(n^2)
+            Space:
+                O(log(n)) (再起の深さ）
 */
 
 // いつ始まる、または、いつ終わるというパラメターが必要
