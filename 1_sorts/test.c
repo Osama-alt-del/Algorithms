@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "./1_bubbleSort.h"
 #include "./2_quickSort.h"
+#include "./3_mergeSort.h"
 #define SIZE 10
 
 int main(){
@@ -23,8 +24,11 @@ int main(){
 	
 	/*----- Quick Sort Test -----*/
         // partition(array, 0, SIZE);
-	quickSort(array, 0, SIZE);
+	// quickSort(array, 0, SIZE);
         
+	/*----- Merge Sort Test -----*/
+        mergeSort(array, 0, SIZE);
+    
 	/*--- Check the sorted array ---*/
         printf("//-----Array-----//\n");
 	for (int i = 0; i < SIZE; i++){
