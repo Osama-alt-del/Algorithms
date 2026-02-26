@@ -10,10 +10,10 @@ void mergeSort(int* array, int start, int end){
     int temp; 
     if(end-start == 0) return; /* ひとつの値しかない場合は*/
     else if (end-start == 1){ /* ２つの整理されていない値があれば、位置を入れ替えてreturnする*/
-        if (array[start] > array[end]){
+        if (array[start] > array[end-1]){
             temp = array[start];
-            array[start] = array[end];
-            array[end] = temp;
+            array[start] = array[end-1];
+            array[end-1] = temp;
         }
         return;
     }

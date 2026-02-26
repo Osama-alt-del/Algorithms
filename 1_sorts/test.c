@@ -2,14 +2,14 @@
 #include "./1_bubbleSort.h"
 #include "./2_quickSort.h"
 #include "./3_mergeSort.h"
-#define SIZE 10
+#define SIZE 8
 
 int main(){
 
 	// Can't use variable to define array length?
 	// const size = 3;
 	// int array[SIZE] = {4, 3, 2, 1};
-        int array[SIZE] = {3, 2, 6, 4, 0, -1, -2, -5, -6, 100};
+        int array[SIZE] = {3, 2, 6, 4, 0, -1, -2, -5};
         /*--- Print the Array Before ---*/
         printf("//-----Array-----//\n");
 	for (int i = 0; i < SIZE; i++){
