@@ -1,5 +1,6 @@
 /* このファイルでクイックソートの関数を造ります*/
 #include <stdio.h>
+// In practice, I want to see if I can code it using just while loops instead of do{}while();
 /* What is quick sort?:
 	１．ある適当な値を決めて(最初の値でもいい）、それより大きいものは後ろへ、小さいものは前へ移動する
 	２．二つに分けたそれぞれのグループの中でまた適当な値を決めて、それより大きい
@@ -9,9 +10,10 @@
 	これは一般的に最も多く使われているソート
 	この動画がめっちゃいい：
 		https://www.youtube.com/watch?v=7h1s2SojIRw&t=419s
+                (Learn the analysis as well
 
         Complexity:
-            Time: 
+            Time:  これの求め方を学んで
                 最速と平均計算量: O(nlog(n))
                 最悪計算量：O(n^2)
             Space:
