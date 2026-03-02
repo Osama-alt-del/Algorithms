@@ -1,3 +1,4 @@
+// TO DO: MAKE TIMER
 // This is a file where I will practice writing out the algorithms that I've learnt
 #include <stdio.h>
 #include <time.h>
@@ -7,7 +8,12 @@
 #include "./quickSort.h"
 
 #define SIZE 50 
+// --------------------TO DO------------------------------------------------ //
+// I want to make a timer function which takes an algorithm and returns it's total time taken, but different functions have a different number
+// of parameters, so what I have to do is use something called a "vardiac" template which allows me to have different numbers of parameters.
+// Then I can use the time library to time the function and turn that into something readable, and output it
 
+int timer(void (*sort));
 
 int main(){
     int array[SIZE];
@@ -32,7 +38,7 @@ int main(){
     // bubbleSort(array, SIZE);
 
     /* Quick Sort Check */
-    quickSort(array, 0, SIZE); // quickSort not working for random array 
+    quickSort(array, 0, SIZE);
     
     t = clock() - t;
 
