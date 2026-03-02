@@ -1,22 +1,19 @@
-// This is a file where I will practice writing out the algorithms that I've learnt
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
 
-#include "./bubbleSort.h"
 #include "./quickSort.h"
 
-#define SIZE 50 
+#define SIZE 5 
 
 
 int main(){
     int array[SIZE];
-    clock_t t;
     
     /* Set Array */
     srand(time(NULL));
     for (int i = 0; i < SIZE; i++){
-        array[i] = rand () % 10; // Set all values to be in between 0 and 9
+        array[i] = rand () % 10; 
     }
     
     printf("------Before------\n");
@@ -24,17 +21,9 @@ int main(){
         printf("%d ", array[i]);
     }
     printf("\n");
-    
-
-
-    t = clock();
-    /* Bubble Sort Check */
-    // bubbleSort(array, SIZE);
 
     /* Quick Sort Check */
-    quickSort(array, 0, SIZE); // quickSort not working for random array 
-    
-    t = clock() - t;
+    quickSort(array, 0, SIZE); 
 
     printf("------After------\n");
     for (int i = 0; i < SIZE; i++){
@@ -42,5 +31,5 @@ int main(){
     }
     printf("\n");
 
-    printf("%ld elapsed\n", t);
+    return 0;
 }
