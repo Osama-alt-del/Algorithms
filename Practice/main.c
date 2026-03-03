@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-#include "./bubbleSort.h"
+#include "./bubble2.h"
 #include "./quickSort.h"
 
 #define SIZE 50 
@@ -35,10 +35,10 @@ int main(){
 
     t = clock();
     /* Bubble Sort Check */
-    // bubbleSort(array, SIZE);
+     bubbleSort(array, SIZE);
 
     /* Quick Sort Check */
-    quickSort(array, 0, SIZE);
+    // quickSort(array, 0, SIZE);
     
     t = clock() - t;
 
