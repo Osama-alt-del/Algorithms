@@ -5,15 +5,13 @@
 #include <stdlib.h>
 
 #include "./bubble2.h"
-#include "./quickSort.h"
+#include "./quick2.h"
 
 #define SIZE 50 
 // --------------------TO DO------------------------------------------------ //
 // I want to make a timer function which takes an algorithm and returns it's total time taken, but different functions have a different number
 // of parameters, so what I have to do is use something called a "vardiac" template which allows me to have different numbers of parameters.
 // Then I can use the time library to time the function and turn that into something readable, and output it
-
-int timer(void (*sort));
 
 int main(){
     int array[SIZE];
@@ -35,10 +33,10 @@ int main(){
 
     t = clock();
     /* Bubble Sort Check */
-     bubbleSort(array, SIZE);
+    //  bubbleSort(array, SIZE);
 
     /* Quick Sort Check */
-    // quickSort(array, 0, SIZE);
+    quickSort(array, 0, SIZE);
     
     t = clock() - t;
 
@@ -48,5 +46,6 @@ int main(){
     }
     printf("\n");
 
+    // Prints the elapsed time in ticks?
     printf("%ld elapsed\n", t);
 }

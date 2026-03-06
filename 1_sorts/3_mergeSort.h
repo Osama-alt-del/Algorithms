@@ -6,6 +6,7 @@ This is mergeSort
     4. Merge the sorted subarrays into sorted array
 */
 
+/* We need a substitute array, which we somehow return the values of? We can compare the values and return the final array or something?*/
 void mergeSort(int* array, int start, int end){
     int temp; 
     if(end-start == 0) return; /* ひとつの値しかない場合は*/
