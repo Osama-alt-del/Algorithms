@@ -19,24 +19,26 @@ char key[] =
 char* key = 
 
 but we can pass a key[] as a char* key in a function
+but we can't pass key* as a key[] parameter in a function
 */
 #include <stdio.h>
 #include <string.h> // Need this for strlen()
 
-int minimumOperations(char* s){
-   int operations;
+int minimumOperations(char s[]){
+    // Ok so we can't initialize like this. Let's just change the function parameter
+    int operations;
 
-   for (int i = 0; i < strlen(s)-1; i++){
+    for (int i = 0; i < strlen(s)-1; i++){
        if (s[i] == s[i+1]){
            // if the current value and the next value are the same, then change the next value
            operations ++;
 
            (s[i+1] == '0')? (s[i+1] = '1'): (s[i+1] = '0'); // This gives me a seg fault
        }
-   }
-   // if (operations == 0){
-   //     printf("This string is already alternating\n");
-   // }
-   return operations;
+    }
+    // if (operations == 0){
+    //     printf("This string is already alternating\n");
+    // }
+    return operations;
 }
 

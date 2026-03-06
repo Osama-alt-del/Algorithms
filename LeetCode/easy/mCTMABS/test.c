@@ -6,7 +6,7 @@
 
 int main(){
     // So I can assume that they will enter
-    char s[]  = "01110";
+    char *s  = "1111";
     // printf("%c\n", s[1]);
     // printf("%c\n", s[1+1]);
     // s[0+1] = '0';
