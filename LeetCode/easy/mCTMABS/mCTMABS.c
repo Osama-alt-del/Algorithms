@@ -26,16 +26,31 @@ but we can't pass key* as a key[] parameter in a function
 
 int minimumOperations(char* s){
     // Ok so we can't initialize like this. Let's just change the function parameter
-    int operations = 0;
-    for (int i = 0; i < strlen(s)-1; i++){
-       
-       if (s[i] == s[i+1]){
-           // if the current value and the next value are the same, then change the next value
-           operations ++;
+    // I forgot adding operations = 0 before. Classic mistake
+    // Firstly lets count how many operations it would take for '0101010...' and '1010101...' respectively
+    int operations;
+    int operations0 = 0;
+    int operations1 = 0;
+    // count the number of 1s and the number of 0s, whichever is less is our number of operations?
 
-           (s[i+1] == '0')? (s[i+1] = '1'): (s[i+1] = '0'); // This gives me a seg fault
-       }
+    for (int i = 0; i < strlen(s); i++){
+        (s[i] == '0'? (operations0++):(operations1++));
     }
+    (operations0 >= operations1)? (operations = operations1):(operations = operations0);
+
+
+
+
+
+    // for (int i = 0; i < strlen(s)-1; i++){
+    //    
+    //    if (s[i] == s[i+1]){
+    //        // if the current value and the next value are the same, then change the next value
+    //        operations1 ++;
+
+    //        (s[i+1] == '0')? (s[i+1] = '1'): (s[i+1] = '0'); // This gives me a seg fault
+    //    }
+    // }
     // if (operations == 0){
     //     printf("This string is already alternating\n");
     // }
