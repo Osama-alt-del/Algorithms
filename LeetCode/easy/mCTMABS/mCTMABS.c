@@ -24,11 +24,11 @@ but we can't pass key* as a key[] parameter in a function
 #include <stdio.h>
 #include <string.h> // Need this for strlen()
 
-int minimumOperations(char s[]){
+int minimumOperations(char* s){
     // Ok so we can't initialize like this. Let's just change the function parameter
-    int operations;
-
+    int operations = 0;
     for (int i = 0; i < strlen(s)-1; i++){
+       
        if (s[i] == s[i+1]){
            // if the current value and the next value are the same, then change the next value
            operations ++;
