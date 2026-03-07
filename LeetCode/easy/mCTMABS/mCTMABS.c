@@ -24,27 +24,21 @@ but we can't pass key* as a key[] parameter in a function
 #include <stdio.h>
 #include <string.h> // Need this for strlen()
 
-int minimumOperations(char* s){
-    // count the number of 1s and the number of 0s, whichever is less is our number of operations?
-    int operations;
-    int operations0 = 0;
-    int operations1 = 0;
-    int flag = 0; // Assume alternating
-    // But we have to check if it's alternating (in which case we return 0)
-    for (int i = 0; i <strlen(s)-1; i++){
-        if(s[i] == s[i+1]){
-            flag = 1;
+
+// Study and understand this: (The following is a solution taken from leetcode:
+int minOperations(char* s) {
+    int alt10 = 0; // 0101 ...
+    int alt01 = 0; // 1010 ...
+    int i;
+    for (int i = 0; s[i] != '\0'; ++i) {
+        if ((i & 1) == 0) {
+            alt01 += (s[i] == '1' ? 1 : 0); // we expect even indices add one on `1`
+            alt10 += (s[i] == '0' ? 1 : 0); // we expect even indices add one on `0`
+        } else {
+            alt01 += (s[i] == '0' ? 1 : 0); // we expect odd indices add one on `0`
+            alt10 += (s[i] == '1' ? 1 : 0); // we expect odd indices add one on `1`
         }
     }
-    if (flag){
-        for (int i = 0; i < strlen(s); i++){
-            (s[i] == '0'? (operations0++):(operations1++));
-        }
-    }
-    else{
-        operations1 = 0;
-    }
-    (operations0 >= operations1)? (operations = operations1):(operations = operations0);
-    return operations;
+    return alt01 < alt10 ? alt01 : alt10;
 }
 

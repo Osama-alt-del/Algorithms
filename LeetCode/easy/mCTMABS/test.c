@@ -7,7 +7,8 @@
 int main(){
     // So I can assume that they will enter
     // With 10010100 it gives me 5, where it should be 3
-    char s[]  = "10";
+    // for some reason I get 0 for 111
+    char s[]  = "1111";
     //          "10101010" // required 5 operations
     //          "01010101" // requires 3 operations
     // printf("%c\n", s[1]);
