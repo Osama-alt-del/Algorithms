@@ -8,33 +8,25 @@
 
 #include <time.h>
 
-#define SIZE 100
+#define SIZE 50
 
 void printArray(int*, int);
 void setArray(int*, int);
 
 float testBubbleSort();
 float testQuickSort();
-float testMergeSort();
 
 int main() {
-    float bubble_t, quick_t, merge_t; 
+    float bubble_t, quick_t; 
 
     // Bubble Sort test and time
-    bubble_t = testBubbleSort();
+    // bubble_t = testBubbleSort();
 
-    // Quick Sort test and time
+    // Quick Sort test and tiem
     quick_t = testQuickSort();
 
-    // Merge Sort test and time
-    merge_t = testMergeSort();
-
     // Compare the speeds:
-    // quick vs bubble
-    printf("For n of %d, quickSort is %d times faster than bubbleSort\n", SIZE, (int)(bubble_t/quick_t));
-
-    // merge vs quick:
-    printf("For n of %d, mergeSort is %d times faster than quickSort\n", SIZE, (int)(quick_t/merge_t));
+    // printf("For n of %d, quickSort is %d times faster than bubbleSort\n", SIZE, (int)(bubble_t/quick_t));
 
     return 0;
 }
@@ -108,8 +100,8 @@ float testQuickSort() {
 
 }
 
-float testMergeSort() {
-    printf("//-------MERGE SORT--------//\n");
+float MergeSort() {
+    printf("//-------QUICK SORT--------//\n");
     // Make array (allocate memory for this array of a certain SIZE);
     int array[SIZE];
 

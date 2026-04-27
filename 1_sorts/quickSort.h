@@ -2,7 +2,8 @@
 // We will be writing quicksort in this file:
 
 int partition(int *array, int lower, int upper) {
-    int pivot = array[lower]; // The pivot is at the start of the array/segment
+    // Using while and do while
+    int pivot = array[lower];
     int i = lower-1;  // -1 because we will use do while
     int j = upper; 
 
@@ -27,4 +28,29 @@ void quickSort(int* array, int lower, int upper) {
         quickSort(array, lower, j);
         quickSort(array, j+1, upper);
     }
+}
+
+// This is the easiest way to write it in my opinion:
+void quickSort2(int* array, int lower, int upper) {
+    if (lower >= upper) {
+        return;
+    }
+    int pivot = array[lower]; // The pivot is at the start of the array/segment
+    // Using for loops and while loops
+    int i, j;
+    for (i = lower, j = upper; i<j;) {
+        // keep incrementing i if current value is less than or equal to the pivot.
+        while (array[i] <= pivot) {i++;};
+        while (array[j] > pivot) {j--;};
+        // swap if we haven't found the position that pivot is meant to be in
+        if (i < j){
+            swap(&array[j], &array[i]);
+        }
+    }
+    // After i becomes greater than j, we have found the pivot's position, so we can go ahead and swap the pivot and j value.
+    swap(&array[j], &array[lower]);
+
+    // recursive call
+    quickSort2(array, lower, j-1); // we shouldn't need to touch the value at [j] anymore because it should be sorted, so we work around it.
+    quickSort2(array, j+1, upper);
 }
