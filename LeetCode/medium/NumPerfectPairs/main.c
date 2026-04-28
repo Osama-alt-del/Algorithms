@@ -12,6 +12,7 @@ a pair of indices, i and j is called 'perfect' if they satisfy the following dec
 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 long long perfectPairs(int*, int);
 bool isPerfectPair(int, int);
@@ -19,12 +20,13 @@ int min(int, int);
 int max(int, int);
 
 int main(){
-    
+    int nums[] = {0, 1, 2, 3};    
+    printf("%lld\n", perfectPairs(nums, 4));
     return 0;
 }
 
 
-// Unfortunately with this double loop, we exceed the timeLimit. This is kind of what happened in interview
+// We get a seg fault for some reason. I'm going to have to debug this
 long long perfectPairs(int* nums, int numsSize) {
     long long totalPairs;
     // So we are going to do a double loop for now:

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#ifndef SWAP_H
-#define SWAP_H
+#ifndef HANDY_H
+#define HANDY_H
 void swap(int* x, int* y) {
     int temp = *x;
     *x = *y;

@@ -6,10 +6,43 @@
 
 #include "handy.h"
 #include "linear.h"
+#include "binary.h"
 
-#define SIZE 15
+#define SIZE 5 
+
+void testBinary();
+void testLinear();
 
 int main() {
+    testBinary();    
+}
+
+void testBinary(){
+    // Just using this to test nicely !! Must be sorted !!
+    int array[SIZE] = {0, 12, 22, 30, 34};
+   
+    // Before
+    printArray(array, SIZE);
+
+    // Start timing
+      
+    clock_t start_t, end_t;
+    float total_t;
+    start_t = clock();
+
+    // Run the code and print out the index of the value we are searching for
+    printf("The index is: %d\n", binarySearch(array, SIZE, 34));
+
+    end_t = clock(); 
+    
+    // stop timing and print out the time taken:
+    total_t = (float) (end_t - start_t)/CLOCKS_PER_SEC;
+    
+    printf("Total time taken in seconds: %f\n", total_t);
+}
+
+
+void testLinear(){
     clock_t start_t, end_t; /* start ticks variable */
     start_t = clock();
     
@@ -26,19 +59,10 @@ int main() {
     index = linearSearch(array, SIZE, 3);
     printf("%d\n", index); 
 
-    /* Binary Search Code: */
-    // binarySearch(array, SIZE, x);
-
     end_t = clock();
     
     float total_t = (float) (end_t - start_t)/CLOCKS_PER_SEC;
     printf("Total time taken: %f seconds\n", total_t); /* print out the time taken in seconds */
 }
-
-
-
-
-
-
 
 
