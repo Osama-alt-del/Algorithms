@@ -15,10 +15,10 @@ int binarySearch(int* array, int SIZE, int x) {
     // figure out the terminating condition (which should be l < r)
     while (array[k] != x && l <= r) {
         if (array[k] > x){
-            r = k-1;
+            r = k-1; /* Search the lower half */
         }
         if (array[k] < x){
-            l = k+1;
+            l = k+1; /* Search the upper half */
         }
 
         // Move to the next index

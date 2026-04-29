@@ -14,4 +14,10 @@ void setArray(int *array, int size) {
         array[i] = rand() % 9 + 1;
     }
 }
+
+void setSortedArray(int *array, int size) {
+    for (int i = 0; i < size; i++) {
+        array[i] = i;
+    }
+}
 #endif
