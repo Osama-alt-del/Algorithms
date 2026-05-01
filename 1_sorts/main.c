@@ -125,8 +125,8 @@ float testMergeSort() {
     // Calculate how much time is taken in processing:
     clock_t start_t = clock(); // return the current ticks that the program has taken.
 
-    // Merge Sort (takes the last index);
-    mergeSort(array, 0, SIZE-1); 
+    // Merge Sort
+    mergeSort(array, SIZE); 
 
     // Tell me how much time it took
     float total_t = (float) (clock() - start_t)/CLOCKS_PER_SEC;
