@@ -1,71 +1,70 @@
-// Recursive Function to break down the array:
+// We will split this into 3 different functions
 
-// the merging function:
 void merge(int* array, int l, int m, int r){
-    int i, j, k; // indexes for temporary arrays, and the actual array
-    
-    // find the sizes of temporary arrays (number of values between l, and m, and m and r)
+    // we need indexes for left array, right array, and the real array
+    int i, j, k;
+
+    // we need to figure out the size of the subarrays:
     int n1 = m-l+1;
     int n2 = r-m;
 
-    // declare the temporary arrays
+    // Then declare subarrays:
     int temp1[n1], temp2[n2];
 
-    // populate the temporary arrays
+    // populate the subarrays with values (copy the values of the array into the subarrays
     for (i = 0; i < n1; i++){
-        temp1[i] = array[l+i];
+        temp1[i] = array[l + i];
     }
     for (j = 0; j < n2; j++){
-        temp2[j] = array[m + j + 1]; // we need plus 1 to go over the value in mid, which is part of the first subarray
+        temp2[j] = array[m + 1 + j]; // we need the +1 to skip the middle value.
     }
 
-    // no that we have the arrays (WHICH WE ASSUME ARE ALREADY SORTED), we will merge them
-    // reset the indexes
-    i = 0;
-    j = 0;
-    k = l; // k is left because we will use for the array, and there might be values before left
+    // reset the indexes and start to merge:
+    i = 0; j = 0;
+    k = l; // because this is the index we will use for the real array, we must use l.
 
-    while (i < n1 && j < n2) {
+    while (i < n1 && j < n2){
         if (temp1[i] <= temp2[j]){
-            array[k] = temp1[i]; // if we are doing smallest to largest
+            array[k] = temp1[i];
             i++;
-        }
-        else if (temp2[j] < temp1[i]) {  // make sure you use else here
+        } else {
             array[k] = temp2[j];
             j++;
         }
-        k++; // increment the value that we are going to change
+        k++; // increment k regardless of what value is chosen
     }
-
-    // fill in the rest of the values
-    while (i < n1) { 
+    
+    // Fill in the rest of the values
+    while (i < n1) {
         array[k] = temp1[i];
-        i++; k++;
-    }
-    while (j < n2) { 
-        array[k] = temp2[j];
-        j++; k++;
+        i++;
+        k++;
     }
 
+    while (j < n2) {
+        array[k] = temp2[j];
+        j++;
+        k++;
+    }
 }
 
-void mergeSortedArrays(int*array, int l, int r){
-    if (l < r){ /* if the problem is still to complex, break it down, if small, then do nothing (to go back up 1 level) */
-        // find the middle (in a way that avoids overflow);
-        int m = l + (r-l)/2;
 
-        // break the problem down into lower half and upper half:
+// Recursive Function
+void mergeSortedArrays(int * array, int l, int r){
+    if (l < r) { // if problem still large or too big
+        // Figure out the middle
+        int m = (l+r)/2;
+
+        // Keep on splitting (keep on recursing);
         mergeSortedArrays(array, l, m);
         mergeSortedArrays(array, m+1, r);
 
-        // merge and sort them (will start with single blocks)
-        merge(array, l, m, r); // we need middle to know where the second array starts.
+        // In the end, I want you to merge them (run merge function)
+        merge(array, l, m, r); // we need m to know where the subarrays split
     }
-
-    // we could add a "else return" here, but it's not required because this is a void function
 }
 
-// one more function to make it nice and easy to run the whole thing (so that we don't have to enter 0 as a parameter)
-void mergeSort(int*array, int size){
-    mergeSortedArrays(array, 0, size-1); // pretty sure this takes indexes and not the size itself
+
+void mergeSort(int* array, int size){
+    mergeSortedArrays(array, 0, size-1); // because this works with the final index and not the size for the final parameter.
 }
